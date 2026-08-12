@@ -166,3 +166,9 @@ stock PreloadAllAnimLibs(playerid)
 
 stock PreloadAnimLib(playerid, const animlib[])
 	return ApplyAnimation(playerid,animlib,"null",0.0,false,false,false,false,0);
+
+stock SetPlayerMoney(playerid, money)
+{
+	ResetPlayerMoney(playerid);
+	return GivePlayerMoney(playerid, PI[playerid][pMoney] = money);
+}

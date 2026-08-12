@@ -65,3 +65,9 @@ public OnPlayerCommandReceived(playerid, cmd[], params[], flags)
 {
 	return true;
 }
+
+public OnPlayerSpawn(playerid)
+{
+	SetPlayerMoney(playerid, PI[playerid][pMoney]);
+	return 1;
+}
