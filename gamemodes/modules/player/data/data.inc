@@ -10,9 +10,13 @@ enum pInfo
 	pMail[50],
 	pLevel,
 	pExp,
+	pSex,
 	pAdmin,
 	pMoney,
-	pBank
+	pBank,
+	pPasswordAttempts,
+	pRegisterState,
+	pSkin
 };
 new PI[MAX_PLAYERS][pInfo];
 
@@ -28,9 +32,13 @@ new PI_EOS[pInfo] =
 	"No Mail Adress", // pMail
 	1, // pLevel
 	0, // pExp
+	0, // pSex
 	0, // pAdmin
 	500, // pMoney
-	0 // pBank
+	0, // pBank
+	3, // pPasswordAttempts
+	0, // pRegisterState
+	0 // pSkin
 };
 
 #define PN(%0) PI[%0][pNickName]

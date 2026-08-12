@@ -1,3 +1,11 @@
+#define ModeNames "State"
+#define ModeText "State-rp Russian"
+#define ModeSite "state-rp.com"
+#define ModeForum "forum.state-rp.com"
+
+new ModeCity[32];
+new isTestServer;
+
 #define COLOR_OLDRED 		0xBE2D2DFF
 #define COLOR_STATE 		0x73B461FF
 #define COLOR_RED 			0xFF6347FF
@@ -50,3 +58,10 @@ func PlayKick(playerid)
     Kick(playerid);
 }
 #define Kick(%0) SetTimerEx("PlayKick",1000,false,"i",%0)
+
+new str_help[256];
+
+#define SendHelp(%0,%1) \
+    format(str_help, sizeof str_help, %1), \
+    strins(str_help, "{DFCFCF}[Подсказка] {DC4747}", 0), \
+    SCM(%0, COLOR_WHITE, str_help)

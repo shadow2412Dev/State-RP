@@ -1,5 +1,6 @@
 #include "../gamemodes/modules/git_branch"
 #include "../gamemodes/modules/data.inc"
+#include "../gamemodes/modules/debug.inc"
 #include "../gamemodes/modules/systems/dialogs.inc"
 #include "../gamemodes/modules/systems/unix_converter.inc"
 #include "../gamemodes/modules/database/main.inc"

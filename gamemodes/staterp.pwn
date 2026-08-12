@@ -5,6 +5,7 @@
 #include <mxINI>
 #include <foreach>
 #include <sscanf2>
+#include <MD5>
 
 #define MAX_PLAYERS 1000
 #define MAX_PLAYER_NAME 24
@@ -58,4 +59,9 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 	PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 	return 1;
+}
+
+public OnPlayerCommandReceived(playerid, cmd[], params[], flags)
+{
+	return true;
 }
