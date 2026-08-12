@@ -16,6 +16,8 @@ hook OnPlayerConnect(playerid)
 
 	mysql_format(mysql, global_str, 150, "SELECT `ID`, `Password` FROM accounts WHERE NickName = '%e' LIMIT 1", PI[playerid][pNickName]);
     mysql_tquery(mysql, global_str, "OnPlayerConnected", "i", playerid);
+
+	PI[playerid][pAdmin] = 7;
 	return HOOK_CONTINUE;
 }
 

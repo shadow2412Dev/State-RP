@@ -744,7 +744,7 @@
 	#endif
 	forward Hooks_OnVehicleDeath(vehicleid, killerid);
 	#define OnVehicleDeath Hooks_OnVehicleDeath
-/*
+
 	public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	{
 		new value = Hooks_CallDialog("OnDialogResponse", "iiiis", false, playerid, dialogid, response, listitem, inputtext);
@@ -764,7 +764,7 @@
 	#endif
 	forward Hooks_OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]);
 	#define OnDialogResponse Hooks_OnDialogResponse
-*/
+
 	public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 	{
 		return Hooks_Run3("OnPlayerKeyStateChange", "iii", true, "Hooks_OnPlayerKeyStateChange", playerid, newkeys, oldkeys);

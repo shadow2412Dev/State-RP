@@ -4,4 +4,5 @@
 #include "../gamemodes/modules/systems/unix_converter.inc"
 #include "../gamemodes/modules/database/main.inc"
 #include "../gamemodes/modules/player/data/main.inc"
+#include "../gamemodes/modules/player/admin/main.inc"
 #include "../gamemodes/modules/functions.inc"

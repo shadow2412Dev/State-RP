@@ -5,3 +5,8 @@ stock J_Kick(playerid)
 	Kick(playerid);
 	return 1;
 }
+
+stock GetString(const param1[],const param2[])
+{
+	return !strcmp(param1, param2, false);
+}
