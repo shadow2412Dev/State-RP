@@ -20,6 +20,15 @@ hook OnPlayerConnect(playerid)
 	return HOOK_CONTINUE;
 }
 
+hook OnPlayerDisconnect(playerid, reason)
+{
+	f(String144, sizeof(String144), "UPDATE `accounts` SET `Online_status` = 1001 WHERE `ID` = %i", PI[playerid][pID]);
+	mysql_tquery(mysql, String144);
+
+	ClearPlayerInfo(playerid);
+	return HOOK_CONTINUE;
+}
+
 stock ClearPlayerInfo(playerid)
 {
 	PI[playerid] = PI_EOS;
@@ -225,6 +234,9 @@ func OnPlayerLogin(playerid, acc_id)
 	cache_get_value_name_int(0, "Money", PI[playerid][pMoney]);
 	cache_get_value_name_int(0, "Bank", PI[playerid][pBank]);
 	cache_get_value_name_int(0, "Skin", PI[playerid][pSkin]);
+
+	f(String144, sizeof(String144), "UPDATE `accounts` SET `Online_status` = %i WHERE `ID` = %i", playerid, PI[playerid][pID]);
+	mysql_tquery(mysql, String144);
 
 	f(global_str, 128, "~n~~n~~n~~n~~n~~n~~w~Welcome~n~~b~%s", PN(playerid));
 	GameTextForPlayer(playerid, global_str, 5000, 6);

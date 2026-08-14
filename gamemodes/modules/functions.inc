@@ -172,3 +172,60 @@ stock SetPlayerMoney(playerid, money)
 	ResetPlayerMoney(playerid);
 	return GivePlayerMoney(playerid, PI[playerid][pMoney] = money);
 }
+
+forward J_SetPlayerPos(playerid, Float:X, Float:Y, Float:Z);
+public J_SetPlayerPos(playerid, Float:X, Float:Y, Float:Z)
+{
+    pTemp[playerid][pAntiAir]= 8;
+
+    pTemp[playerid][pPost][0] = floatround(Float:X);
+	pTemp[playerid][pPost][1] = floatround(Float:Y);
+	pTemp[playerid][pPost][2] = floatround(Float:Z);
+
+    SetPlayerPos(playerid, Float:X,Float:Y,Float:Z);
+    Streamer_Update(playerid);
+	return true;
+}
+
+stock J_SetVehiclePos(vehicleid,Float:X,Float:Y,Float:Z)
+{
+	if(SetVehiclePos(vehicleid,X,Y,Z))
+	{
+	    foreach(new i : Player)
+		{
+		    if(!IsPlayerConnected(i)) continue;
+		    if(IsPlayerInVehicle(i,vehicleid))
+			{
+				pTemp[i][pAntiAir] = 6;
+				pTemp[i][pPost][0] = floatround(Float:X);
+				pTemp[i][pPost][1] = floatround(Float:Y);
+				pTemp[i][pPost][2] = floatround(Float:Z);
+			}
+		}
+	    return true;
+    }
+    return false;
+}
+
+forward f_TogglePlayerControllable( playerid, bool:status);
+public f_TogglePlayerControllable( playerid, bool:status)
+{
+	if(GetPVarInt(playerid, "sob_check") == 1)return 1;
+	TogglePlayerControllable( playerid, status);
+	return 1;
+}
+
+stock ClearChatToAll()
+{
+	for(new i; i < 20; i ++) SendClientMessageToAll(-1, " ");
+	return true;
+}
+
+
+stock SetPlayerSkinEx(playerid,skin)
+{
+	SetPlayerSkin(playerid,skin);
+
+ 	SetPlayerChatBubble(playerid, "Переоделся", COLOR_GREEN, 10.0, 5000);
+	return true;
+}

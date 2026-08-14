@@ -33,6 +33,7 @@ new isTestServer;
 
 new 
 	global_str[4097],
+	String144[144],
 	String256[256],
 	String512[512],
 	GlobalWeather = 2,
@@ -65,3 +66,12 @@ new str_help[256];
     format(str_help, sizeof str_help, %1), \
     strins(str_help, "{DFCFCF}[Подсказка] {DC4747}", 0), \
     SCM(%0, COLOR_WHITE, str_help)
+
+enum _temp_
+{
+	pAntiAir,
+	Float:pPos[3],
+	pPost[3],
+	pDialogList
+}
+new pTemp[MAX_PLAYERS][_temp_];

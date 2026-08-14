@@ -42,5 +42,7 @@ hook OnGameModeInit()
 
 	SetWeather(GlobalWeather);
 	SetGameModeText(ModeText);
+
+	mysql_tquery(mysql, "UPDATE `accounts` SET `Online_status` = 1001` WHERE `Online_status` != 1001");
 	return HOOK_CONTINUE;
 }

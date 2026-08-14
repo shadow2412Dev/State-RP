@@ -71,3 +71,19 @@ public OnPlayerSpawn(playerid)
 	SetPlayerMoney(playerid, PI[playerid][pMoney]);
 	return 1;
 }
+
+public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ)
+{
+	if(PI[playerid][pAdmin] > ADM_NONE)
+ 	{
+  		if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+  		{
+	   		new tmpcar = GetPlayerVehicleID(playerid);
+	   		J_SetVehiclePos(tmpcar, fX, fY, fZ+2);
+  		}
+  		else J_SetPlayerPos(playerid, fX, fY, fZ+1);
+  		SetPlayerVirtualWorld(playerid,0);
+  		SetPlayerInterior(playerid,0);
+ 	}
+	return 1;
+}
